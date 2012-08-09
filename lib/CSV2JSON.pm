@@ -1,143 +1,95 @@
-#Copyright (C) 2012  Fernando Ferreira Diniz de Moraes
-
-#This program is free software; you can redistribute it and/or modify
-#it under the terms of the GNU General Public License as published by
-#the Free Software Foundation; either version 2 of the License, or
-#(at your option) any later version.
-
-#This program is distributed in the hope that it will be useful,
-#but WITHOUT ANY WARRANTY; without even the implied warranty of
-#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#GNU General Public License for more details.
-
-#You should have received a copy of the GNU General Public License along
-#with this program; if not, write to the Free Software Foundation, Inc.,
-#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-
 #!/usr/bin/perl
 
-# Converts a SEMPLA CSV into a Projeto/Atividade variable-based JSON.
-
 package CSV2JSON;
+use Fcntl 'O_RDONLY';
 use Tie::File;
+use JSON::PP;
 use EntityExtractor;
-
-my @csv;
 
 sub new {
   my $class = shift;
   my $self = {
     _csvfilepath => shift,
-    _separator => shift
+    _comma => shift || ';'
   };
-
-  die "Path to CSV file not provided." unless(defined($self->{_csvfilepath}));
-  $self->{_separator} = ';' unless(defined($self->{_separator}));
-  $self->{_extractor} = EntityExtractor->new;
-
-  tie @csv, 'Tie::File', $self->{_csvfilepath} or die "$?";
 
   bless $self, $class;
   return $self;
 }
 
-my $get_row_type = sub {
+sub extract_row_type {
   my $row = shift;
-  my $type = $1 if($row =~ m/\**(.*?): /);
-  $type =~ s/ã/a/g;
-  $type =~ s/ç/c/g;
-  $type =~ s/ô/o/g;
-  $type =~ s/ /_/g;
-  $type =~ s/-//g;
-  $type = lc($type);
+  my $type = "undefined";
 
-  $row =~ s/\**.*: //;
-  return ($type, $row);
-};
-
-my $get_header = sub {
-  my $self = shift;
-  my @header = split(/$self->{_separator}/, $csv[0]);
-  return @header;
-};
-
-my $get_entities = sub {
-  my ($self, $string) = @_;
-  my ($result, $debug) = $self->{_extractor}->extract_entities($string);
-  my $entities = "";
-
-  foreach my $tag (keys %{$result}) {
-    my @array = @{$result->{$tag}};
-
-    $entities .= "\t\t\t\t\"$tag\" : [\n";
-    foreach my $element (@array) {
-      $entities .= "\t\t\t\t\t\"$element\"";
-      $entities .= $element eq $array[-1] ? "\n" : ",\n";
-    }
-    $entities .= $tag eq ((keys %{$result})[-1]) ? "\t\t\t\t]\n" : "\t\t\t\t],\n";
+  if($row =~ m/^\**(.*?): /) {
+    $type = $1;
+    $type =~ s/ã/a/g;
+    $type =~ s/ç/c/g;
+    $type =~ s/ô/o/g;
+    $type =~ s/ /_/g;
+    $type =~ s/-//g;
+    $type = lc($type);
   }
 
-  return($entities, $debug);
-};
+  $row =~ s/^\**.*: //;
+  return ($type, $row);
+}
 
-my $get_activity = sub {
-  my ($self, $current, $rowvalues) = @_;
-  my $activity;
+sub extract_entities {
+  my $string = shift;
+  my $extractor = EntityExtractor->new;
+  my ($result, $debug) = $extractor->extract_entities($string);
+  return $result;
+}
 
-  ${$rowvalues}[0] =~ s/\"//g; # Removes " characters from activity description
-  ${rowvalues}[-1] =~ s/\s+$//; # Trims last value
+sub get_project {
+  my $row_ref = shift;
+  my $current_ref = shift;
+  my @row_values = @{$row_ref};
+  my %current_values = %{$current_ref};
 
-  my ($entities, $debug) = $get_entities->($self, ${$rowvalues}[0]);
+  # Some descriptions contain '"' characters, screwing json up. That's why we should remove it.
+  $row_values[0] =~ s/"//g;
+  $row_values[-1] =~ s/\s+$//; # Trims last value
 
-  $activity = (${$current}{id} == 0 ? "\n\t\t{\n" : ",\n\t\t{\n");
-  $activity .= "\t\t\t\"id\" : \"${$current}{id}\",\n";
-  $activity .= "\t\t\t\"orgao\" : \"${$current}{orgao}\",\n";
-  $activity .= "\t\t\t\"unidade\" : \"${$current}{unidade}\",\n";
-  $activity .= "\t\t\t\"funcao\" : \"${$current}{funcao}\",\n";
-  $activity .= "\t\t\t\"sub_funcao\" : \"${$current}{subfuncao}\",\n";
-  $activity .= "\t\t\t\"programa\" : \"${$current}{programa}\",\n";
-  $activity .= "\t\t\t\"projeto/atividade\" : \"${$rowvalues}[0]\",\n";
-  $activity .= "\t\t\t\"orcado\" : \"${$rowvalues}[1]\",\n";
-  $activity .= "\t\t\t\"atualizado\" : \"${$rowvalues}[2]\",\n";
-  $activity .= "\t\t\t\"empenhado\" : \"${$rowvalues}[3]\",\n";
-  $activity .= "\t\t\t\"liquidado\" : \"${$rowvalues}[4]\",\n";
-  $activity .= "\t\t\t\"entidades_georeferenciaveis\" : {\n";
-  $activity .= "$entities";
-  $activity .= "\t\t\t}\n";
-#   $activity .= "\t\t\t\"debug\" : \"$debug\"\n";
-  $activity .= "\t\t}";
+  my $entities = extract_entities($row_values[0]);
+  $current_values{descricao} = $row_values[0];
+  $current_values{orcado} = $row_values[1];
+  $current_values{atualizado} = $row_values[2];
+  $current_values{empenhado} = $row_values[3];
+  $current_values{liquidado} = $row_values[4];
+  $current_values{entidades} = $entities;
 
-  return $activity;
-};
+  return %current_values;
+}
 
 sub convert {
   my $self = shift;
+  my $path = $self->{_csvfilepath} || shift || die "No path to csv provided.";
 
-  my %current = ();
-  my $json;
+  my @projects = ();
+  my %current_values = ();
+  $current_values{id} = 0;
 
-  $json = "{\n\t\"projeto/atividade\" : [";
-  $current{id} = 0;
+  tie my @csv, 'Tie::File', $path, autochomp => 1 or die "$!";
 
-  for my $i (2..scalar(@csv)) {
-    my ($rowtype, $row) = $get_row_type->($csv[$i]);
-    @rowvalues = split(/$self->{_separator}/, $row);
-    if($rowtype eq "projeto/atividade") {
-      my $activity = $get_activity->($self, \%current, \@rowvalues);
-      $json .= $activity;
-      $current{id} = $current{id} + 1;
+  for my $i (2..scalar(@csv)-1) {
+    my ($type, $row) = extract_row_type($csv[$i]);
+    my @row_values = split(/$self->{_comma}/, $row);
+    if($type eq "projeto/atividade") {
+      my %project = get_project(\@row_values, \%current_values);
+      push(@projects, \%project);
+      $current_values{id} = $current_values{id} + 1;
     } else {
-      $current{$rowtype} = $rowvalues[0];
+      $current_values{$type} = $row_values[0] unless($type eq "fonte" || $type eq "modalidade_da_despesa" || $type eq "categoria_da_despesa");
     }
   }
 
-  $json .= "\n\t]\n";
-  $json .= "}\n";
-  return $json;
-}
-
-sub DESTROY {
   untie @csv;
+
+  my $json = JSON::PP->new->allow_nonref->pretty->utf8;
+  my $json_text = $json->encode(\@projects);
+  return $json_text;
 }
 
 1;

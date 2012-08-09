@@ -19,7 +19,6 @@
 package Geocoder;
 use Downloader;
 
-# FIXME: Achar uma solução melhor para isso.
 my $GEOCODE_BASE_URL = 'http://maps.googleapis.com/maps/api/geocode/json';
 my $BOUNDARIES = 'bounds=-19.779320,-44.160561|-25.250469,-53.109612'; # Sao Paulo (State) Boundaries
 my $SENSOR = 'sensor=false';
@@ -36,7 +35,7 @@ sub new {
 
 sub geocode {
   my $self = shift;
-  my $address = shift or $self->{_address} or die "No address provided.";
+  my $address = shift || $self->{_address} || die "No address provided.";
   my $url = $GEOCODE_BASE_URL . '?' . 'address=' . $address . '&' . $BOUNDARIES . '&' . $SENSOR;
   my $downloader = Downloader->new($url);
   my $content = $downloader->download;

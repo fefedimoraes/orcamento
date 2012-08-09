@@ -1,0 +1,691 @@
+{
+	"terms" : [
+		{
+			"tag" : "numero",
+			"term" : "\\d+",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "rio",
+			"term" : " rio"
+		},
+		{
+			"tag" : "agencia",
+			"term" : "ag(ê|e)ncia"
+		},
+		{
+			"tag" : "alameda",
+			"term" : "alameda|al"
+		},
+		{
+			"tag" : "ama",
+			"term" : "ama|ame|assist(ê|e)ncia m(é|e)dica ambulatorial"
+		},
+		{
+			"tag" : "ambulatorio_de_especialidade",
+			"term" : "ambulat(ó|o)rio de especialidade(s)?"
+		},
+		{
+			"tag" : "apa",
+			"term" : "apa"
+		},
+		{
+			"tag" : "associacao",
+			"term" : "associa(ç|c)(ã|a)o|assoc"
+		},
+		{
+			"tag" : "avenida",
+			"term" : "avenida|av"
+		},
+		{
+			"tag" : "bacia",
+			"term" : "bacia"
+		},
+		{
+			"tag" : "bairro",
+			"term" : "bairro"
+		},
+		{
+			"tag" : "base",
+			"term" : "base"
+		},
+		{
+			"tag" : "beco",
+			"term" : "beco"
+		},
+		{
+			"tag" : "biblioteca",
+			"term" : "biblioteca"
+		},
+		{
+			"tag" : "camara",
+			"term" : "c(â|a)mara"
+		},
+		{
+			"tag" : "corrego",
+			"term" : "c(ó|o)rrego"
+		},
+		{
+			"tag" : "campo",
+			"term" : "campo"
+		},
+		{
+			"tag" : "campus",
+			"term" : "campus"
+		},
+		{
+			"tag" : "capela",
+			"term" : "capela"
+		},
+		{
+			"tag" : "casa",
+			"term" : "casa"
+		},
+		{
+			"tag" : "cdc",
+			"term" : "cdc|clube da cidade|clube da comunidade"
+		},
+		{
+			"tag" : "cdm",
+			"term" : "cdm|clube do munic(í|i)pio"
+		},
+		{
+			"tag" : "cei",
+			"term" : "cei|coordenadoria de ensino do interior"
+		},
+		{
+			"tag" : "central",
+			"term" : "central"
+		},
+		{
+			"tag" : "centro",
+			"term" : "centro"
+		},
+		{
+			"tag" : "cep",
+			"term" : "cep",
+			"secondterm" : "\\d{5}-?\\d{3}"
+		},
+		{
+			"tag" : "ceu",
+			"term" : "ceu|centro educacional unificado"
+		},
+		{
+			"tag" : "chacara",
+			"term" : "ch(á|a)cara"
+		},
+		{
+			"tag" : "cidade",
+			"term" : "cidade"
+		},
+		{
+			"tag" : "cieja",
+			"term" : "cieja"
+		},
+		{
+			"tag" : "clube_esportivo",
+			"term" : "clube esportivo"
+		},
+		{
+			"tag" : "cnpj",
+			"term" : "cnpj:?",
+			"secondterm" : "\\d{2}\\.?\\d{3}\\.?\\d{3}\\/?\\d{4}-?\\d{2}"
+		},
+		{
+			"tag" : "coe",
+			"term" : "coe"
+		},
+		{
+			"tag" : "cohab",
+			"term" : "cohab"
+		},
+		{
+			"tag" : "colegio",
+			"term" : "col(é|e)gio"
+		},
+		{
+			"tag" : "colonia",
+			"term" : "col(ô|o)nia"
+		},
+		{
+			"tag" : "comas",
+			"term" : "comas",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "comdec",
+			"term" : "comdec",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "comissao",
+			"term" : "comiss(ã|a)o"
+		},
+		{
+			"tag" : "companhia",
+			"term" : "companhia| cia"
+		},
+		{
+			"tag" : "complexo_viario",
+			"term" : "complexo vi(á|a)rio"
+		},
+		{
+			"tag" : "comunidade",
+			"term" : "comunidade"
+		},
+		{
+			"tag" : "condominio",
+			"term" : "condom(í|i)nio"
+		},
+		{
+			"tag" : "conjunto",
+			"term" : "conjunto|conj|cj."
+		},
+		{
+			"tag" : "conselho",
+			"term" : "conselho"
+		},
+		{
+			"tag" : "coordenadoria",
+			"term" : "coordenadoria"
+		},
+		{
+			"tag" : "corredor_de_onibus",
+			"term" : "corredor de (Ô|ô|o)nibus"
+		},
+		{
+			"tag" : "cras",
+			"term" : "cras"
+		},
+		{
+			"tag" : "departamento",
+			"term" : "departamento|dpto"
+		},
+		{
+			"tag" : "diretoria",
+			"term" : "diretoria"
+		},
+		{
+			"tag" : "distrito",
+			"term" : "distrito"
+		},
+		{
+			"tag" : "edificio",
+			"term" : "edif(í|i)cio"
+		},
+		{
+			"tag" : "empresa",
+			"term" : "empresa"
+		},
+		{
+			"tag" : "entorno",
+			"term" : "entorno"
+		},
+		{
+			"tag" : "escola",
+			"term" : "escola|emei|emef|eeef|eeem"
+		},
+		{
+			"tag" : "esplanada",
+			"term" : "esplanada"
+		},
+		{
+			"tag" : "esporte_clube",
+			"term" : "esporte clube"
+		},
+		{
+			"tag" : "estadio",
+			"term" : "est(á|a)dio"
+		},
+		{
+			"tag" : "estacao",
+			"term" : "esta(ç|c)(ã|a)o"
+		},
+		{
+			"tag" : "estrada",
+			"term" : "estrada"
+		},
+		{
+			"tag" : "forum",
+			"term" : "f(ó|o)rum"
+		},
+		{
+			"tag" : "favela",
+			"term" : "favela"
+		},
+		{
+			"tag" : "fazenda",
+			"term" : "fazenda"
+		},
+		{
+			"tag" : "feira",
+			"term" : "feira"
+		},
+		{
+			"tag" : "fumcad",
+			"term" : "fumcad",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "fundacao",
+			"term" : "funda(ç|c)(ã|a)o"
+		},
+		{
+			"tag" : "funset",
+			"term" : "funset",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "gabinete",
+			"term" : "gabinete"
+		},
+		{
+			"tag" : "hospital",
+			"term" : "hospital|hosp"
+		},
+		{
+			"tag" : "ilume",
+			"term" : "ilume",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "instituto",
+			"term" : "instituto"
+		},
+		{
+			"tag" : "inspetoria_regional",
+			"term" : "ir|inspetoria regional"
+		},
+		{
+			"tag" : "jardim",
+			"term" : "jardim|jd"
+		},
+		{
+			"tag" : "ladeira",
+			"term" : "ladeira"
+		},
+		{
+			"tag" : "lago",
+			"term" : "lago|lgo"
+		},
+		{
+			"tag" : "largo",
+			"term" : "largo"
+		},
+		{
+			"tag" : "loteamento",
+			"term" : "loteamento"
+		},
+		{
+			"tag" : "marginal",
+			"term" : "marginal"
+		},
+		{
+			"tag" : "mercado",
+			"term" : "mercado"
+		},
+		{
+			"tag" : "ministerio",
+			"term" : "minist(é|e)rio"
+		},
+		{
+			"tag" : "morro",
+			"term" : "morro"
+		},
+		{
+			"tag" : "museu",
+			"term" : "museu"
+		},
+		{
+			"tag" : "nucleo",
+			"term" : "n(u|ú)cleo"
+		},
+		{
+			"tag" : "nir",
+			"term" : "nir|n(ú|u)cleo integrado de reabilita(ç|c)(ã|a)o"
+		},
+		{
+			"tag" : "organizacao",
+			"term" : "organiza(ç|c)(ã|a)o"
+		},
+		{
+			"tag" : "orquestra",
+			"term" : "orquestra"
+		},
+		{
+			"tag" : "ouvidoria",
+			"term" : "ouvidoria"
+		},
+		{
+			"tag" : "polo_institucional",
+			"term" : "p(ó|o)lo institucional"
+		},
+		{
+			"tag" : "parque",
+			"term" : "parque|pq"
+		},
+		{
+			"tag" : "passarela",
+			"term" : "passarela"
+		},
+		{
+			"tag" : "patio",
+			"term" : "p(á|a)tio"
+		},
+		{
+			"tag" : "praca",
+			"term" : "pra(ç|c)a|pça|pç"
+		},
+		{
+			"tag" : "procuradoria",
+			"term" : "procuradoria"
+		},
+		{
+			"tag" : "radial",
+			"term" : "radial"
+		},
+		{
+			"tag" : "recanto",
+			"term" : "recanto"
+		},
+		{
+			"tag" : "riacho",
+			"term" : "riacho"
+		},
+		{
+			"tag" : "rodovia",
+			"term" : "rodovia|rod"
+		},
+		{
+			"tag" : "rua",
+			"term" : "rua|r|ruas"
+		},
+		{
+			"tag" : "sao_paulo",
+			"term" : "s(ã|a)o paulo"
+		},
+		{
+			"tag" : "sitio",
+			"term" : "s(í|i)tio"
+		},
+		{
+			"tag" : "secretaria",
+			"term" : "secretaria"
+		},
+		{
+			"tag" : "seme",
+			"term" : "seme",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "setor",
+			"term" : "setor"
+		},
+		{
+			"tag" : "sigsp",
+			"term" : "sigsp",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "sistema",
+			"term" : "sistema|sist\\."
+		},
+		{
+			"tag" : "sme",
+			"term" : "sme",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "smpp",
+			"term" : "smpp",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "smsu",
+			"term" : "smsu",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "sociedade",
+			"term" : "sociedade"
+		},
+		{
+			"tag" : "solar",
+			"term" : "solar"
+		},
+		{
+			"tag" : "sptrans",
+			"term" : "sptrans",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "ssp_sp",
+			"term" : "ssp sp",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "subprefeitura",
+			"term" : "subprefeitura|subprefeit\\.|subpref\\."
+		},
+		{
+			"tag" : "superintendencia",
+			"term" : "superintend(ê|e)ncia"
+		},
+		{
+			"tag" : "supervisao_geral",
+			"term" : "supervis(ã|a)o geral"
+		},
+		{
+			"tag" : "tcmsp",
+			"term" : "tcmsp",
+			"secondterm" : ""
+		},
+		{
+			"tag" : "teatro",
+			"term" : "teatro"
+		},
+		{
+			"tag" : "templo",
+			"term" : "templo"
+		},
+		{
+			"tag" : "terminal",
+			"term" : "terminal"
+		},
+		{
+			"tag" : "travessa",
+			"term" : "travessa|trav"
+		},
+		{
+			"tag" : "travessia",
+			"term" : "travessia"
+		},
+		{
+			"tag" : "trecho",
+			"term" : "trecho"
+		},
+		{
+			"tag" : "trevo",
+			"term" : "trevo"
+		},
+		{
+			"tag" : "tribunal",
+			"term" : "tribunal"
+		},
+		{
+			"tag" : "ubs",
+			"term" : "ubs|unidade b(á|a)sica de sa(ú|u)de"
+		},
+		{
+			"tag" : "unidade_de_controle",
+			"term" : "unidade de controle"
+		},
+		{
+			"tag" : "vale",
+			"term" : "vale"
+		},
+		{
+			"tag" : "vereda",
+			"term" : "vereda"
+		},
+		{
+			"tag" : "via",
+			"term" : "via"
+		},
+		{
+			"tag" : "viaduto",
+			"term" : "viaduto"
+		},
+		{
+			"tag" : "viela",
+			"term" : "viela"
+		},
+		{
+			"tag" : "vila",
+			"term" : "vila|vl|v\\."
+		}
+	],
+	"replace" : {
+		"cep:" : "cep",
+		"cnpj:" : "cnpj",
+		" - " : ";",
+		" \\(AMA\\)" : "",
+		", Ambira" : "; Rua Ambira",
+		", José Veloso" : "; Rua José Veloso",
+		", Três Meninas" : "; Rua Três Meninas",
+		"/Carlos Lacerda" : "; Rua Carlos Lacerda",
+		"/Diogo Garcia Martins" : "; Rua Diogo Garcia Martins",
+		"/Edson Peregrine" : "; Rua Edson Peregrine",
+		"/Eurides Fernandes do Nascimento" : "; Rua Eurides Fernandes do Nascimento",
+		"/Inajar de Souza" : "; Rua Inajar de Souza",
+		"/Valo Velho" : "; Bairro Valo Velho",
+		"/\\s+" : ";",
+		"Acharia" : "Acharia",
+		"Bairrro" : "Bairro",
+		"Benning" : "Bening",
+		"Bning" : "Bening",
+		"Inscrita no" : ";",
+		"Narceja" : "; Rua Narceja",
+		"Nº" : ";",
+		"do Nº" : ";",
+		"Ruas Pauline Caro Altura" : "; Rua Pauline Caro",
+		"Setanistas" : "Sertanistas",
+		"\\b(à|À|a|com|da|de|do|e|e do|em|na|no) (Beco)\\b" : "; Beco",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Av(\\.)?|Avenida)\\b" : "; Avenida",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (CDC)\\b" : "; CDC",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Estrada)\\b" : "; Estrada",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Jd(\\.)?|Jardim)\\b" : "; Jardim",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (P(ç|c)(\\.)?|P(ç|c)a|Pra(ç|c)a)\\b" : "; Praça",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Pq(\\.)?|Parque)\\b" : "; Parque",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (R(\\.)|Rua)\\b" : "; Rua",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Subpref\\.|Subprefeit\\.|Subprefeitura)\\b" : "; Subprefeitura",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Terreno)\\b" : "; Terreno",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Trav(\\.)?|Travessa)\\b" : "; Travessa",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Trecho)\\b" : "; Trecho",
+		"\\b(à|À|a|com|da|do|e|em|na|no) (V\\.|Vl(\\.)?|Vila)\\b" : "; Vila",
+		"\\baté a sua\\b" : ";",
+		"\\baté\\b" : ";",
+		"\\bcom a\\b" : ";",
+		"\\be a\\b" : ";",
+		"\\be o\\b" : ";",
+		"\\bpara\\b" : ";",
+		"\\bpela\\b" : ";",
+		"\\bx\\b" : ";",
+		"\\s+" : " ",
+		"\\s+/" : ";",
+		"\\s+/\\s+" : ";",
+		"a Santa Albina" : "; Rua Santa Albina",
+		"alt\\. do" : ";",
+		"ao Lado da" : ";",
+		"ao Ponto" : ";",
+		"até ;" : ";",
+		"com (Á|á|a)rea" : ";",
+		"com ;" : ";",
+		"com Acesso (à|a)" : ";",
+		"com Al(ç|c)a de Acesso" : ";",
+		"com Constru(ç|c)(ã|a)o" : ";",
+		"desde ;" : ";",
+		"desde a" : ";",
+		"do n\\." : ";",
+		"dotribunal" : "do Tribunal",
+		"e Abdo Salem" : "; Rua Abdo Salem",
+		"e Alaíde Pereira" : "; Rua Alaíde Pereira",
+		"e Augusto Cecchini" : "; Rua Augusto Cecchini",
+		"e Boa Vista" : "; Rua Boa Vista",
+		"e Coloca(ç|c)(ã|a)o de" : ";",
+		"e Conflu(ê|e)ncia das" : ";",
+		"e Diogo Martins" : "; Rua Diogo Martins",
+		"e Edalberto" : "; Rua Edalberto",
+		"e Elaboração de Projeto Executivo" : ";",
+		"e Flor de Cachoeira" : "; Rua Flor de Cachoeira",
+		"e Giovanni Legranzi" : "; Rua Giovanni Legranzi",
+		"e Haquea" : "; Rua Haquea",
+		"e Implanta(ç|c)(ã|a)o" : ";",
+		"e Lira Cearense" : "; Rua Lira Cearense",
+		"e Luis Pires de Minas" : "; Av. Luis Pires de Minas",
+		"e Madre Cabrini" : "; Rua Madre Cabrini",
+		"e Manoel de Abreu" : "; Rua Manoel de Abreu",
+		"e Margarida Africana" : "; Rua Margarida Africana",
+		"e Nelson" : "; Rua Nelson",
+		"e Nova Brasília" : "; Rua Nova Brasília",
+		"e Rio Imburama" : "; Rua Rio Imburama",
+		"e Santo Alexandre" : "; Rua Santo Alexandre",
+		"e Vera Cruz" : "; Rua Vera Cruz",
+		"e entre as" : ";",
+		"em (Á|á|a)rea" : ";",
+		"entre ;" : ";",
+		"entre a" : ";",
+		"entre as" : ";",
+		"entre os" : ";",
+		"na Altura ;" : ";",
+		"na Altura da" : ";",
+		"na Conflu(ê|e)ncia da" : ";",
+		"que Liga a" : ";",
+		"s/n" : ";",
+		"à XV" : "; Rua Quinze"
+	},
+	"blacklist" : [
+		"campo de futebol",
+		"centro bid",
+		"conselho e lira cearense",
+		"praça com brinquedos",
+		"praça de lazer",
+		"teatro de bonecos. esta peça apresentará a história da formação do bairro de são miguel paulista",
+		"teatro voltado aos jovens e adolescentes da região de sapopemba",
+		"trecho compreendido",
+		"via trindade pinto",
+		"viela n",
+		"organização das conferências municipais",
+		"organização e realização dos festejos pelo aniversário do bairro de são miguel paulista",
+		"rádio amador",
+		"são paulo confia",
+		"são paulo em paz",
+		"são paulo de desenvolvimento e mobilização de ativos",
+		"são paulo de parcerias",
+		"são paulo ii",
+		"são paulo no mês de setembro",
+		"são paulo de taekwondo",
+		"são paulo de ginástica olímpica e rítmica",
+		"são paulo como sede da expo 2020",
+		"são paulo como sede da copa do mundo de 2014",
+		"são paulo assis chateaubriand",
+		"alça de acesso",
+		"alças de acesso",
+		"AMA de Especialidade",
+		"AMA Especialidades",
+		"Ambulatório de Especialidades com Unidade de Saúde do Idoso",
+		"Associação sem Fins Econômicos",
+		"Associação Unidos",
+		"Base Comunitária da GCM",
+		"Base Comunitária GCM",
+		"Base de Dados Socioeconômicos",
+		"Base GCM",
+		"Campo de Futebol e Infraestrutura",
+		"Campo de Grama Sintetica",
+		"Campo de Malha",
+		"Campo de Rodízio",
+		"Central de Telecomunicações da GCM",
+		"Centro Comunitário e Lanchonete",
+		"Centro de Assistência em DST/AIDS"
+	]
+}

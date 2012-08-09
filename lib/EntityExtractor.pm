@@ -14,23 +14,12 @@
 #with this program; if not, write to the Free Software Foundation, Inc.,
 #51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-#!/usr/bin/perl
-
 # Extracts entities from a given string.
 
+#!/usr/bin/perl
+
 package EntityExtractor;
-use JSON::PP;
-
-my $loadfile = sub {
-  my $filepath = shift;
-
-  open FILE, "<", $filepath or die $!;
-  my $filecontent = do { local $/; <FILE> };
-  close FILE;
-
-  my $ref = JSON::PP->new->decode($filecontent);
-  return $ref;
-};
+use JSONLoader;
 
 sub new {
   my $class = shift;
@@ -38,7 +27,8 @@ sub new {
     _listspath => shift || "../resources/algorithm/lists.json",
   };
 
-  ${$self}{_lists} = $loadfile->($self->{_listspath});
+  my $jsonloader = JSONLoader->new;
+  ${$self}{_lists} = $jsonloader->load($self->{_listspath});
   ${$self}{_blacklist} = map { $_ => 1} @{$self->{_lists}->{blacklist}};
 
   bless $self, $class;

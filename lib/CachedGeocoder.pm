@@ -32,7 +32,7 @@ sub new {
 
 sub geocode {
   my $self = shift;
-  my $address = shift or $self->{_address} or die "No address provided.";
+  my $address = shift || $self->{_address} || die "No address provided.";
 
   my $cache = GeocoderCache->new;
   my $response = $cache->select($address);

@@ -14,9 +14,9 @@
 #with this program; if not, write to the Free Software Foundation, Inc.,
 #51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-#!/usr/bin/perl
-
 # Store geocoder results in a local cache (sqlite database)
+
+#!/usr/bin/perl
 
 package GeocoderCache;
 use DBI;
@@ -52,6 +52,17 @@ sub select {
   my $sql = "SELECT * FROM cache WHERE request = ?";
   my $sth = $dbh->prepare($sql);
   $sth->execute($request);
+  my $arrayref = $sth->fetchall_arrayref;
+  return $arrayref;
+}
+
+sub select_all {
+  my $self = shift;
+  my $dbh = $self->{_dbh};
+
+  my $sql = "SELECT * FROM cache";
+  my $sth = $dbh->prepare($sql);
+  $sth->execute();
   my $arrayref = $sth->fetchall_arrayref;
   return $arrayref;
 }
