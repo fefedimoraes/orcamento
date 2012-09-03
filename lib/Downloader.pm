@@ -34,7 +34,7 @@ sub new {
 
 sub download {
   my $self = shift;
-  my $url = shift or $self->{_url} or die "No URL provided.";
+  my $url = shift || $self->{_url} || die "No URL provided.";
 
   my $mech = WWW::Mechanize->new();
   $mech->agent_alias('Windows Mozilla');

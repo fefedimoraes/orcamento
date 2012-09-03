@@ -1,11 +1,6 @@
 {
 	"terms" : [
 		{
-			"tag" : "numero",
-			"term" : "\\d+",
-			"secondterm" : ""
-		},
-		{
 			"tag" : "rio",
 			"term" : " rio"
 		},
@@ -103,8 +98,8 @@
 		},
 		{
 			"tag" : "cep",
-			"term" : "cep",
-			"secondterm" : "\\d{5}-?\\d{3}"
+			"term" : "\\d{5}-\\d{3}",
+			"secondterm" : ""
 		},
 		{
 			"tag" : "ceu",
@@ -551,8 +546,8 @@
 		" - " : ";",
 		" \\(AMA\\)" : "",
 		", Ambira" : "; Rua Ambira",
-		", José Veloso" : "; Rua José Veloso",
-		", Três Meninas" : "; Rua Três Meninas",
+		", Jose Veloso" : "; Rua Jose Veloso",
+		", Tres Meninas" : "; Rua Tres Meninas",
 		"/Carlos Lacerda" : "; Rua Carlos Lacerda",
 		"/Diogo Garcia Martins" : "; Rua Diogo Garcia Martins",
 		"/Edson Peregrine" : "; Rua Edson Peregrine",
@@ -575,7 +570,7 @@
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (CDC)\\b" : "; CDC",
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Estrada)\\b" : "; Estrada",
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Jd(\\.)?|Jardim)\\b" : "; Jardim",
-		"\\b(à|À|a|com|da|de|do|e|em|na|no) (P(ç|c)(\\.)?|P(ç|c)a|Pra(ç|c)a)\\b" : "; Praça",
+		"\\b(à|À|a|com|da|de|do|e|em|na|no) (P(ç|c)(\\.)?|P(ç|c)a|Pra(ç|c)a)\\b" : "; Praca",
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Pq(\\.)?|Parque)\\b" : "; Parque",
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (R(\\.)|Rua)\\b" : "; Rua",
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Subpref\\.|Subprefeit\\.|Subprefeitura)\\b" : "; Subprefeitura",
@@ -583,8 +578,8 @@
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Trav(\\.)?|Travessa)\\b" : "; Travessa",
 		"\\b(à|À|a|com|da|de|do|e|em|na|no) (Trecho)\\b" : "; Trecho",
 		"\\b(à|À|a|com|da|do|e|em|na|no) (V\\.|Vl(\\.)?|Vila)\\b" : "; Vila",
-		"\\baté a sua\\b" : ";",
-		"\\baté\\b" : ";",
+		"\\bate a sua\\b" : ";",
+		"\\bate\\b" : ";",
 		"\\bcom a\\b" : ";",
 		"\\be a\\b" : ";",
 		"\\be o\\b" : ";",
@@ -609,14 +604,14 @@
 		"do n\\." : ";",
 		"dotribunal" : "do Tribunal",
 		"e Abdo Salem" : "; Rua Abdo Salem",
-		"e Alaíde Pereira" : "; Rua Alaíde Pereira",
+		"e Alaide Pereira" : "; Rua Alaide Pereira",
 		"e Augusto Cecchini" : "; Rua Augusto Cecchini",
 		"e Boa Vista" : "; Rua Boa Vista",
 		"e Coloca(ç|c)(ã|a)o de" : ";",
 		"e Conflu(ê|e)ncia das" : ";",
 		"e Diogo Martins" : "; Rua Diogo Martins",
 		"e Edalberto" : "; Rua Edalberto",
-		"e Elaboração de Projeto Executivo" : ";",
+		"e Elaboracao de Projeto Executivo" : ";",
 		"e Flor de Cachoeira" : "; Rua Flor de Cachoeira",
 		"e Giovanni Legranzi" : "; Rua Giovanni Legranzi",
 		"e Haquea" : "; Rua Haquea",
@@ -627,7 +622,7 @@
 		"e Manoel de Abreu" : "; Rua Manoel de Abreu",
 		"e Margarida Africana" : "; Rua Margarida Africana",
 		"e Nelson" : "; Rua Nelson",
-		"e Nova Brasília" : "; Rua Nova Brasília",
+		"e Nova Brasilia" : "; Rua Nova Brasilia",
 		"e Rio Imburama" : "; Rua Rio Imburama",
 		"e Santo Alexandre" : "; Rua Santo Alexandre",
 		"e Vera Cruz" : "; Rua Vera Cruz",
@@ -642,7 +637,7 @@
 		"na Conflu(ê|e)ncia da" : ";",
 		"que Liga a" : ";",
 		"s/n" : ";",
-		"à XV" : "; Rua Quinze"
+		"a XV" : "; Rua Quinze"
 	},
 	"blacklist" : [
 		"campo de futebol",

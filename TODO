@@ -1,2 +1,27 @@
-Fix:
 Arrumar o vetor localizacoes
+
+Pseudocódigo
+
+Levantamento de estatisticas *
+  - Ver o que entrou no mapa
+    - Por que entrou?
+    - Duplicatas
+  - Ver o que ficou de fora do mapa
+    - Por que ficou de fora? (Falta de qualidade dos dados, Falha do algoritmo, ou google)
+  - Prioridades de coordenadas
+
+Site
+  - Licença
+  - Creative Commons
+  - Licença dos dados
+  - Melhorar os dados da visualização *
+
+Lista de Áreas
+bairro, chacara (?), cidade, cohab (?), comunidade, condominio (?), conjunto, distrito, esplanada (?), favela, fazenda (?), jardim, loteamento, morro, recanto, sitio, subprefeitura, vila
+
+Prioridade:
+CEP -> Pontual -> Região (Área);
+
+Visualização dos círculos sobre dados sem entidades
+
+Mapa da Participação Cidadã
