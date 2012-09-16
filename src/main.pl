@@ -9,6 +9,7 @@ use DiacriticMarks;
 use CSV2JSON;
 use CachedGeocoder;
 use JSON -support_by_pp;
+use Data::Dumper;
 
 $| = 1;
 &main;
@@ -110,9 +111,10 @@ sub new_metadata_entry {
   return $entry;
 }
 
-sub update_metadata {
+sub update_metadata { #FIXME
   my $entry = shift;
   my $metadata_entry = shift;
+  
   $metadata_entry->{quantidade}++;
   $metadata_entry->{orcado} += format_number($entry->{orcado});
   $metadata_entry->{atualizado} += format_number($entry->{atualizado});
