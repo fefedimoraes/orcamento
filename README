@@ -1,1 +1,8 @@
 Mapeamento das ações do orçamento de São Paulo.
+
+Requer os seguintes módulos Perl:
+	- JSON
+	- JSON::XS (Opcional)
+	- WWW::Mechanize
+	- DBI
+	- DBD::SQLite

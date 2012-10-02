@@ -1,3 +1,19 @@
+#Copyright (C) 2012  Fernando Ferreira Diniz de Moraes
+
+#This program is free software; you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation; either version 2 of the License, or
+#(at your option) any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License along
+#with this program; if not, write to the Free Software Foundation, Inc.,
+#51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
 #!/usr/bin/perl
 
 use warnings;
@@ -41,7 +57,12 @@ sub main {
       print "File was found ...\n";
     }
   }
-
+  
+  # Corrigir formato do arquivo
+  print "Fixing possible errors on raw CSV ...\n";
+  my $fixed_text = fix_csv($csvfilepath);
+  save_data($csvfilepath, $fixed_text);
+  
   # Remover acentos do arquivo
   print "Stripping diacritic marks ...\n";
   my $stripped_text = strip_diacriticmarks($csvfilepath);
@@ -72,6 +93,22 @@ sub main {
   # Salvar arquivo JSON
   print "Saving file $arguments{'y'}-geocoded.json\n";
   save_data("../resources/data/json/$arguments{'y'}-geocoded.json", JSON->new->allow_nonref->pretty->utf8->encode($data));
+}
+
+sub fix_csv {
+	my $path = shift;
+	open FILE, '<', $path or die $!;
+	my @lines = <FILE>;
+	close FILE;
+	
+	my $fixed_file = "";
+	for my $line (@lines) {
+		unless($line =~ /;/) {
+			chomp($line);
+		}
+		$fixed_file .= $line;
+	}
+	return $fixed_file;
 }
 
 sub save_data {
@@ -111,7 +148,7 @@ sub new_metadata_entry {
   return $entry;
 }
 
-sub update_metadata { #FIXME
+sub update_metadata {
   my $entry = shift;
   my $metadata_entry = shift;
   
