@@ -97,7 +97,7 @@ sub convert {
       push(@projects, \%project);
       $current_values{id} = $current_values{id} + 1;
     } else {
-      $current_values{$type} = $row_values[0] unless($type eq "fonte" || $type eq "modalidade_da_despesa" || $type eq "categoria_da_despesa");
+      $current_values{$type} = $row_values[0] unless($type eq "fonte" || $type eq "modalidade_da_despesa" || $type eq "categoria_da_despesa" || $type eq "elemento_economico");
     }
   }
 
